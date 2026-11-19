@@ -1,3 +1,5 @@
+![Restaurant Ordering project cover](docs/readme-banner.svg)
+
 <div align="center">
   <h1>Energetic Edge Restaurant Ordering</h1>
   <p><strong>QR menus, ordering, point of sale and stock workflows for multiple restaurants.</strong></p>

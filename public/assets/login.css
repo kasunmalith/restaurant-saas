@@ -1,0 +1,16 @@
+.remember-login {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 6px 0 2px;
+  color: var(--muted);
+  font-size: .9rem;
+  cursor: pointer;
+}
+
+.remember-login input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: var(--ink);
+}

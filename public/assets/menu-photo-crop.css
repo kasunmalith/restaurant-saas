@@ -1,0 +1,17 @@
+.admin-photo-crop-dialog{width:min(440px,calc(100vw - 22px));max-width:none;max-height:calc(100dvh - 24px);padding:20px;border:1px solid var(--admin-line,#dce9e1);border-radius:18px;background:var(--admin-surface,#fff);color:var(--admin-text,#19332b);box-shadow:0 24px 80px #0005;overflow:auto}
+.admin-photo-crop-dialog::backdrop{background:#071b13ba;backdrop-filter:blur(3px)}
+.admin-photo-crop-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:14px}
+.admin-photo-crop-head small{color:#138753;font-size:.65rem;font-weight:800;letter-spacing:.12em}
+.admin-photo-crop-head h2{margin:2px 0 3px;font:750 1.25rem/1.2 Inter,system-ui,sans-serif}
+.admin-photo-crop-head p,.admin-photo-crop-dialog>p{margin:0;color:var(--admin-muted,#708078);font-size:.76rem}
+.admin-photo-crop-head button{width:32px!important;min-width:32px!important;height:32px!important;min-height:32px!important;margin:0!important;padding:0!important;border:1px solid var(--admin-line,#dce9e1)!important;border-radius:9px!important;background:transparent!important;color:var(--admin-text,#19332b)!important;font-size:1.2rem!important}
+.admin-photo-crop-dialog canvas{display:block;width:min(100%,320px);aspect-ratio:1;margin:12px auto;border:1px solid var(--admin-line,#dce9e1);border-radius:11px;background:#e8eee9;cursor:grab;touch-action:none}
+.admin-photo-crop-dialog canvas:active{cursor:grabbing}
+.admin-photo-crop-zoom{display:grid;gap:7px;margin:12px 0;color:var(--admin-text,#19332b);font-size:.8rem;font-weight:700}
+.admin-photo-crop-zoom input{width:100%;margin:0;accent-color:#119557}
+.admin-photo-crop-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}
+.admin-photo-crop-actions button{width:auto!important;min-height:39px!important;margin:0!important;padding:9px 15px!important;border:1px solid var(--admin-line,#dce9e1)!important;border-radius:9px!important;background:transparent!important;color:var(--admin-text,#19332b)!important;font-size:.78rem!important;font-weight:750!important}
+.admin-photo-crop-actions [data-crop-apply]{border-color:#119557!important;background:#119557!important;color:#fff!important}
+.admin-photo-crop-actions [data-crop-apply]:hover{background:#0b7748!important}
+html:is([data-admin-theme="dim"],[data-admin-theme="dark"]) .admin-photo-crop-dialog{background:var(--admin-bg,#18231d);color:var(--admin-text,#edf4f0)}
+@media(max-width:390px){.admin-photo-crop-dialog{padding:15px}.admin-photo-crop-actions{display:grid;grid-template-columns:1fr 1fr}.admin-photo-crop-actions button{padding:8px!important}}

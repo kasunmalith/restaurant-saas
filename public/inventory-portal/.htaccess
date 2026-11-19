@@ -1,0 +1,7 @@
+Options -Indexes
+RewriteEngine On
+RewriteRule (^|/)\. - [F,L]
+RewriteRule ^(?:app|api|bin|database|docs|jobs|pages|tests)/ - [F,L,NC]
+<FilesMatch "\.(?:sql|md|log|env|ini|dist)$">
+    Require all denied
+</FilesMatch>

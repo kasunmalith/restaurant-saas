@@ -1,0 +1,4 @@
+document.querySelector('#settings-form')?.addEventListener('submit',async event=>{
+ event.preventDefault();const form=event.target,button=form.querySelector('button'),status=form.querySelector('[role=status]');button.disabled=true;
+ try{const response=await fetch(base+'/api/admin/settings',{method:'POST',body:new FormData(form)});const result=await response.json();if(!response.ok||result.error)throw Error(result.error||'Unable to save settings.');document.querySelector('#dashboard-pos-frame')?.contentWindow?.postMessage({type:'restaurant-pos-features',manager_bill_edit_enabled:result.manager_bill_edit_enabled},location.origin);status.textContent='Settings saved.';await window.showAdminPopup('Restaurant settings saved successfully.');}catch(error){status.textContent='';await window.showAdminPopup(error.message,'error');}finally{button.disabled=false;}
+});

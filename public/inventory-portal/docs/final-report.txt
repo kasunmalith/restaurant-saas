@@ -1,0 +1,35 @@
+INVENTORY & PROFIT MANAGEMENT PORTAL — FINAL REPORT
+Status: Phases 1-6 implemented and locally verified on 2026-10-17 (Asia/Colombo).
+Local URL: http://localhost/restaurant-saas/inventory-portal/
+
+DELIVERED
+- Separate responsive portal and login/session using existing Restaurant SaaS accounts with explicit tenant-scoped OWNER, INVENTORY_MANAGER, and ACCOUNTANT access.
+- Units, raw materials, suppliers, purchases, opening stock, append-only stock movements, stock counts, and weighted-average costs.
+- Effective-dated menu recipes, option mapping, estimated food cost, gross profit and margin.
+- CLI KOT worker with a safe history watermark, idempotent ADD consumption, cancellation review, mapping overrides, and wastage.
+- Stock valuation, low-stock detection, and reports for paid POS sales, tracked ingredient cost, gross profit when complete, payments, purchases, cost trends, and wastage.
+
+DATABASE
+Six migrations created 21 new inventory_* tables in the local restaurant_saas database. Migrations 001-006 are recorded. No active portal access grants exist. The KOT worker has not been bootstrapped.
+
+SETUP
+Grant access only to a verified active SaaS user using the CLI instructions in docs/installation.md. After configuring units, materials, opening stock/purchases, and recipes, follow docs/worker-scheduling.md to bootstrap the worker exactly once and schedule it.
+
+VERIFICATION
+- Phase 2, 3, 4, and 5 database tests passed; temporary test rows were rolled back.
+- PHP lint passed for all portal PHP files; JavaScript syntax passed.
+- Local HTTP checks returned 200 for the login page, protected route response, and stylesheet.
+- Existing Restaurant SaaS source files were not modified. Existing database tables were not altered.
+- No production files or database were changed.
+
+LIMITATIONS
+- Stock deduction is triggered by KOT ADD records, not order placement/acceptance alone.
+- Cancellation requires staff review; refunds and invoice edits do not automatically reverse stock.
+- Gross profit is withheld when invoice/KOT/recipe tracking is incomplete. It is not net profit and excludes operating expenses.
+- Production deployment, migration, host settings, and worker scheduling have not been tested.
+
+ACCESS CONTROL UPDATE — 2026-10-18
+- SaaS Owner has a separate Inventory & Profit section to select a restaurant, enable/disable its portal, and set a restaurant-specific password (minimum 6 characters, maximum 72 bytes) or generate a random one.
+- The active Manager email is the username; the portal password is separate from the regular SaaS password. Only its hash is stored; the password is shown once.
+- Enabling grants the active Manager initial OWNER access. Additional users require individual active grants and share their restaurant's portal password.
+- Migration 007_tenant_portal_settings.sql was applied locally; the database now has 22 inventory_* tables. Focused localhost access tests passed. No production files or database were changed.

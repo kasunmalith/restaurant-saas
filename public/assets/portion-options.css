@@ -1,0 +1,41 @@
+.customer-menu-page .food-portion-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%;margin-top:auto;gap:0;text-align:left}
+.customer-menu-page .food-portion-options:has(.food-portion:nth-child(3)){grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px}
+.customer-menu-page .food-portion-options:has(.food-portion:nth-child(3)) .food-portion{padding:8px;border:1px solid rgba(255,255,255,.16);border-radius:9px}
+.customer-menu-page .food-portion{display:flex;flex-direction:column;align-items:stretch;min-width:0;padding:2px 10px 0}
+.customer-menu-page .food-portion:first-child{padding-left:0;border-right:1px solid rgba(255,255,255,.16)}
+.customer-menu-page .food-portion:last-child{padding-right:0;padding-left:14px}
+.customer-menu-page .food-portion-label{color:rgba(255,255,255,.77);font-size:.75rem;line-height:1.2}
+.customer-menu-page .food-portion strong{display:block;margin:3px 0 0!important;color:#65e4a4!important;font-size:clamp(.9rem,1.5vw,1.12rem)!important;white-space:nowrap}
+.customer-menu-page .food-portion .add{align-self:stretch!important;width:100%!important;min-width:0!important;margin-top:9px!important;padding:8px 4px!important;background:linear-gradient(180deg,#ee941b,#d56f04)!important;color:#fff;font-weight:800;text-align:center}
+.customer-menu-page .food-portion .add:disabled{background:#68746d!important;box-shadow:none!important}
+.customer-menu-page .food-portion .add[hidden]{display:none!important}
+.customer-menu-page .food-portion>span:not(.food-portion-label){align-self:center;margin-top:9px}
+.customer-menu-page .food:nth-child(even) .food-portion-options{text-align:left}
+@media(max-width:700px){.customer-menu-page .food-portion{padding-right:5px}.customer-menu-page .food-portion:last-child{padding-left:7px}.customer-menu-page .food-portion-label{font-size:.64rem}.customer-menu-page .food-portion strong{font-size:.78rem!important}.customer-menu-page .food-portion .add{font-size:.7rem!important;padding:7px 2px!important}}
+
+/* Use the detailed product/portion layout only for products with three or more sizes. */
+.customer-menu-page .food.food-has-options{display:grid;grid-template-columns:minmax(110px,42%) minmax(0,1fr);align-items:start;gap:12px;min-height:0;padding:12px;overflow:hidden;border:1px solid var(--customer-line);border-radius:16px;background:var(--customer-surface);box-shadow:0 10px 28px rgba(0,0,0,.18)}
+.customer-menu-page .food.food-has-options>.food-img{grid-column:1;grid-row:1;width:100%;height:auto;aspect-ratio:1;margin:0;overflow:hidden;border:1px solid var(--customer-line);border-radius:12px;background:var(--customer-surface-2);font-size:30px}
+.customer-menu-page .food.food-has-options>.food-img img{display:block;width:100%;height:100%;object-fit:cover}
+.customer-menu-page .food.food-has-options>.food-body{grid-column:2;grid-row:1;display:block;min-width:0;min-height:0;margin:0!important;padding:4px 0!important;border:0;border-radius:0;background:transparent;box-shadow:none;text-align:left}
+.customer-menu-page .food.food-has-options .food-body h3{margin:0;color:var(--customer-text);font:800 1.1rem/1.2 Inter,system-ui,sans-serif!important}
+.customer-menu-page .food.food-has-options .food-body p{min-height:0;margin:7px 0 0;color:var(--customer-muted);font-size:.74rem;line-height:1.4}
+.customer-menu-page .food.food-has-options>.food-options{grid-column:1/-1;grid-row:2;display:block;min-width:0;margin:0;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;text-align:left}
+.customer-menu-page .food.food-has-options .food-options-heading{display:grid;gap:2px;margin:0 0 9px}
+.customer-menu-page .food.food-has-options .food-options-heading strong{color:var(--customer-text);font-size:.92rem}
+.customer-menu-page .food.food-has-options .food-options-heading span{color:var(--customer-muted);font-size:.68rem}
+.customer-menu-page .food.food-has-options .food-portion-options{display:grid;grid-template-columns:1fr;gap:8px;margin:0}
+.customer-menu-page .food.food-has-options .food-portion{display:grid;grid-template-columns:48px minmax(0,1fr) auto auto;align-items:center;gap:9px;min-width:0;padding:8px;border:1px solid var(--customer-line);border-radius:12px;background:var(--customer-surface-2)}
+.customer-menu-page .food.food-has-options .food-portion-thumb{display:block;width:48px;height:48px;margin:0;overflow:hidden;border:1px solid var(--customer-line);border-radius:9px;background:var(--customer-surface);font-size:18px}
+.customer-menu-page .food.food-has-options .food-portion-thumb img{display:block;width:100%;height:100%;object-fit:cover}
+.customer-menu-page .food.food-has-options .food-portion-details{min-width:0}
+.customer-menu-page .food.food-has-options .food-portion-label{display:block;color:var(--customer-text);font-size:.82rem;font-weight:750;white-space:normal}
+.customer-menu-page .food.food-has-options .food-portion-price{margin:0!important;color:var(--customer-accent)!important;font-size:.84rem!important;white-space:nowrap}
+.customer-menu-page .food.food-has-options .food-portion .add{width:auto!important;min-width:64px!important;margin:0!important;padding:8px 11px!important;border:0;border-radius:10px!important;background:linear-gradient(135deg,var(--customer-action),var(--customer-action-dark))!important;color:#fff!important;font-size:.76rem;font-weight:800}
+@media(max-width:420px){.customer-menu-page .food.food-has-options{grid-template-columns:minmax(95px,40%) minmax(0,1fr);gap:9px;padding:10px}.customer-menu-page .food.food-has-options .food-portion{grid-template-columns:42px minmax(0,1fr) auto;gap:5px 8px;padding:7px}.customer-menu-page .food.food-has-options .food-portion-thumb{grid-row:1/3;width:42px;height:42px}.customer-menu-page .food.food-has-options .food-portion-price{grid-column:2;grid-row:2;font-size:.76rem!important}.customer-menu-page .food.food-has-options .food-portion .add{grid-column:3;grid-row:1/3;min-width:58px!important;padding:7px 8px!important}.customer-menu-page .food.food-has-options .food-body h3{font-size:.96rem!important}.customer-menu-page .food.food-has-options .food-body p{font-size:.66rem}}
+.admin-edit-form .admin-portion-toggle,.form-grid .admin-portion-toggle{display:flex;align-items:center;align-self:center;gap:10px;grid-column:1/-1;min-width:0;margin:0;font-weight:750}
+.admin-edit-form .admin-portion-toggle input[type="checkbox"],.form-grid .admin-portion-toggle input[type="checkbox"]{appearance:auto!important;display:inline-block!important;flex:0 0 18px;width:18px!important;min-width:18px!important;height:18px!important;min-height:18px!important;margin:0!important;padding:0!important;border:0!important;border-radius:3px!important;background:transparent!important;box-shadow:none!important;accent-color:#0d8a54}
+.admin-edit-form .admin-portion-prices,.form-grid .admin-portion-prices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-column:1/-1;gap:14px;min-width:0}
+.admin-edit-form .admin-portion-prices label,.form-grid .admin-portion-prices label{min-width:0}
+.admin-edit-form .admin-portion-prices[hidden],.form-grid .admin-portion-prices[hidden],.admin-edit-form .admin-single-price[hidden]{display:none!important}
+@media(max-width:480px){.admin-edit-form .admin-portion-prices,.form-grid .admin-portion-prices{grid-template-columns:1fr}}

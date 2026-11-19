@@ -1,0 +1,15 @@
+.env
+*.local.php
+*.live.php
+/vendor/
+/node_modules/
+/storage/
+/uploads/
+/backups/
+/tmp/
+/data/*
+!/data/.gitkeep
+*.sqlite
+*.db
+*.log
+config.php

@@ -1,0 +1,9 @@
+Options -Indexes
+RewriteEngine On
+# Private application resources are never routed through the public controller.
+RewriteRule (^|/)\. - [F,L]
+RewriteRule ^(?:app|config|database|docs|routes|storage|tests|tmp|vendor)(?:/|$) - [F,L,NC]
+RewriteRule ^(?:composer\.(?:json|lock|phar)|README\.md|IMPLEMENTATION-STATUS\.md)$ - [F,L,NC]
+RewriteRule ^public(?:/|$) - [L]
+RewriteRule ^$ public/ [L]
+RewriteRule ^(.*)$ public/$1 [L]

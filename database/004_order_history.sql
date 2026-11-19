@@ -1,0 +1,13 @@
+CREATE TABLE IF NOT EXISTS order_status_history (
+ id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+ restaurant_id BIGINT UNSIGNED NOT NULL,
+ order_id BIGINT UNSIGNED NOT NULL,
+ user_id BIGINT UNSIGNED NULL,
+ previous_status VARCHAR(20) NOT NULL,
+ new_status VARCHAR(20) NOT NULL,
+ created_at DATETIME NOT NULL,
+ INDEX(restaurant_id,order_id,id),
+ FOREIGN KEY (restaurant_id) REFERENCES restaurants(id) ON DELETE CASCADE,
+ FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE,
+ FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL
+) ENGINE=InnoDB;

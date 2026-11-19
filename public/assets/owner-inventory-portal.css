@@ -1,0 +1,39 @@
+#inventory-portal-access{display:grid;gap:18px;border:1px solid #dcece4;border-radius:20px;background:linear-gradient(135deg,#fff,#f8fcf9);box-shadow:0 12px 36px #12382e0a}
+#inventory-portal-access .owner-inventory-heading{display:flex;align-items:center;justify-content:space-between;gap:18px}
+#inventory-portal-access .owner-inventory-heading .eyebrow{margin:0 0 6px;color:#158557;font-size:.68rem;font-weight:850;letter-spacing:.14em}
+#inventory-portal-access .owner-inventory-heading h2{margin:0;color:var(--admin-text,#14211d);font-size:1.55rem}
+#inventory-portal-access .owner-inventory-heading p:last-child{margin:6px 0 0;color:var(--admin-muted,#65756e);font-size:.84rem;line-height:1.5}
+#inventory-portal-access .owner-inventory-brand{display:grid;place-items:center;width:54px;height:54px;flex:none;border-radius:16px;background:#e7f6ee;color:#0b8a58;font-size:1.5rem;font-weight:850}
+#inventory-portal-access .owner-inventory-controls{display:grid;grid-template-columns:minmax(220px,460px);gap:7px}
+#inventory-portal-access .owner-inventory-controls label{color:var(--admin-text,#263831);font-size:.78rem;font-weight:800}
+#inventory-portal-access .owner-inventory-controls select{height:46px;margin:0;border:1px solid #d7e5dd;border-radius:11px;background:#fff;color:#24362e}
+#inventory-portal-access .owner-inventory-state{display:grid;gap:15px;padding:18px;border:1px solid #e0ece5;border-radius:15px;background:#fff}
+#inventory-portal-access .owner-inventory-state[hidden],#inventory-portal-access [hidden]{display:none!important}
+#inventory-portal-access .owner-inventory-summary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+#inventory-portal-access .owner-inventory-summary>div{display:grid;gap:5px;min-width:0;padding:13px 15px;border:1px solid #e6efea;border-radius:12px;background:#f7fbf8}
+#inventory-portal-access .owner-inventory-summary small{color:#687a72;font-size:.7rem;font-weight:750}
+#inventory-portal-access .owner-inventory-summary strong{overflow-wrap:anywhere;color:#1d3028;font-size:.9rem}
+#inventory-portal-access [data-portal-state].is-enabled{color:#087a4b}
+#inventory-portal-access .owner-inventory-status{margin:0;color:var(--admin-muted,#65756e);font-size:.8rem;line-height:1.5}
+#inventory-portal-access .owner-inventory-password-entry{display:grid;grid-template-columns:minmax(220px,460px) auto;align-items:end;gap:7px 10px;max-width:620px}
+#inventory-portal-access .owner-inventory-password-entry>label{grid-column:1/-1;color:#315344;font-size:.75rem;font-weight:800}
+#inventory-portal-access .owner-inventory-password-input{display:flex;align-items:center;gap:8px;min-width:0}
+#inventory-portal-access .owner-inventory-password-input input{height:42px;min-width:0;margin:0;font:600 .9rem/1.2 ui-monospace,SFMono-Regular,Consolas,monospace}
+#inventory-portal-access .owner-inventory-password-input button{width:auto;margin:0;padding:9px 13px;border:1px solid #cbded3;border-radius:10px;background:#f2f8f4;color:#315344;font-size:.76rem;font-weight:800}
+#inventory-portal-access .owner-inventory-password-entry>small{grid-column:1/-1;color:#64766d;font-size:.72rem;line-height:1.45}
+#inventory-portal-access .owner-inventory-actions,#inventory-portal-access .owner-inventory-secret-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+#inventory-portal-access .owner-inventory-actions button,#inventory-portal-access .owner-inventory-secret-actions button{width:auto;margin:0;padding:10px 15px;border:1px solid #0d8752;border-radius:10px;background:linear-gradient(135deg,#16a36a,#087748);color:#fff;font-size:.78rem;font-weight:800}
+#inventory-portal-access .owner-inventory-actions [data-portal-disable]{border-color:#d88778;background:#fff4f1;color:#a33224;box-shadow:none}
+#inventory-portal-access .owner-inventory-actions button:disabled{opacity:.55;cursor:not-allowed}
+#inventory-portal-access .owner-inventory-secret{display:grid;grid-template-columns:minmax(220px,460px) auto;align-items:end;gap:10px;padding:15px;border:1px solid #c9e9d7;border-radius:13px;background:#f3fbf6}
+#inventory-portal-access .owner-inventory-secret[hidden]{display:none!important}
+#inventory-portal-access .owner-inventory-secret label{display:grid;gap:6px;color:#315344;font-size:.75rem;font-weight:800}
+#inventory-portal-access .owner-inventory-secret input{height:42px;margin:0;font:700 .9rem/1.2 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.04em}
+#inventory-portal-access .owner-inventory-secret small{grid-column:1/-1;color:#64766d;font-size:.72rem;line-height:1.45}
+#inventory-portal-access .owner-inventory-notice{padding:12px 14px;border:1px solid #f0d8a6;border-radius:10px;background:#fff9ea;color:#76530c;font-size:.82rem}
+html[data-admin-theme="dim"] #inventory-portal-access,html[data-admin-theme="dark"] #inventory-portal-access{background:#101813;border-color:var(--admin-line,#34463d)}
+html[data-admin-theme="dim"] #inventory-portal-access .owner-inventory-state,html[data-admin-theme="dark"] #inventory-portal-access .owner-inventory-state{background:#141d18;border-color:var(--admin-line,#34463d)}
+html[data-admin-theme="dim"] #inventory-portal-access .owner-inventory-summary>div,html[data-admin-theme="dark"] #inventory-portal-access .owner-inventory-summary>div{background:#1b2520;border-color:var(--admin-line,#34463d)}
+html[data-admin-theme="dim"] #inventory-portal-access .owner-inventory-summary strong,html[data-admin-theme="dark"] #inventory-portal-access .owner-inventory-summary strong{color:#e7efe9}
+html[data-admin-theme="dim"] #inventory-portal-access .owner-inventory-secret,html[data-admin-theme="dark"] #inventory-portal-access .owner-inventory-secret{background:#17251c;border-color:#315c41}
+@media(max-width:640px){#inventory-portal-access .owner-inventory-heading{align-items:flex-start}#inventory-portal-access .owner-inventory-summary{grid-template-columns:1fr}#inventory-portal-access .owner-inventory-password-entry{grid-template-columns:1fr}#inventory-portal-access .owner-inventory-password-entry>label,#inventory-portal-access .owner-inventory-password-entry>small{grid-column:auto}#inventory-portal-access .owner-inventory-secret{grid-template-columns:1fr}#inventory-portal-access .owner-inventory-secret small{grid-column:auto}#inventory-portal-access .owner-inventory-actions button,#inventory-portal-access .owner-inventory-secret-actions button{flex:1}}

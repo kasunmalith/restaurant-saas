@@ -1,0 +1,11 @@
+<?php
+declare(strict_types=1);
+if(PHP_SAPI!=='cli'){http_response_code(404);exit;}
+$root=dirname(__DIR__);$env=[];
+foreach(file($root.'/.env',FILE_IGNORE_NEW_LINES|FILE_SKIP_EMPTY_LINES)?:[] as $line){if(str_starts_with(trim($line),'#'))continue;[$key,$value]=array_pad(explode('=', $line,2),2,'');$env[trim($key)]=trim($value,' "');}
+if(!in_array($env['DB_HOST']??'', ['localhost','127.0.0.1'],true))throw new RuntimeException('This migration runner is restricted to localhost; review and apply the SQL manually on production.');
+$db=new PDO('mysql:host='.$env['DB_HOST'].';dbname='.$env['DB_DATABASE'].';charset=utf8mb4',$env['DB_USERNAME'],$env['DB_PASSWORD'],[PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION]);
+$column=$db->prepare('SELECT 1 FROM information_schema.COLUMNS WHERE TABLE_SCHEMA=DATABASE() AND TABLE_NAME=? AND COLUMN_NAME=?');$column->execute(['online_customer_accounts','email']);
+if(!$column->fetchColumn()){$db->exec('ALTER TABLE online_customer_accounts ADD COLUMN email VARCHAR(190) NULL AFTER customer_id, ADD KEY idx_online_account_email (restaurant_id,email)');echo "Added online_customer_accounts.email.\n";}else echo "online_customer_accounts.email already exists.\n";
+$table=$db->prepare('SELECT 1 FROM information_schema.TABLES WHERE TABLE_SCHEMA=DATABASE() AND TABLE_NAME=?');$table->execute(['online_customer_password_resets']);
+if(!$table->fetchColumn()){$db->exec('CREATE TABLE online_customer_password_resets (id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY, restaurant_id BIGINT UNSIGNED NOT NULL, account_id BIGINT UNSIGNED NOT NULL, temp_password_hash VARCHAR(255) NOT NULL, attempts TINYINT UNSIGNED NOT NULL DEFAULT 0, requested_ip_hash CHAR(64) NOT NULL, created_at DATETIME NOT NULL, sent_at DATETIME NULL, expires_at DATETIME NOT NULL, used_at DATETIME NULL, KEY idx_customer_reset_account (restaurant_id,account_id,created_at), KEY idx_customer_reset_ip (requested_ip_hash,created_at), FOREIGN KEY (restaurant_id) REFERENCES restaurants(id) ON DELETE CASCADE, FOREIGN KEY (account_id) REFERENCES online_customer_accounts(id) ON DELETE CASCADE) ENGINE=InnoDB');echo "Created online_customer_password_resets.\n";}else echo "online_customer_password_resets already exists.\n";

@@ -1,0 +1,19 @@
+RewriteEngine On
+Options -Indexes
+
+# Keep the WebView/browser profile up to date without disabling local caching:
+# stored responses are revalidated with the server on each request.
+<IfModule mod_headers.c>
+    Header always set Cache-Control "no-cache, must-revalidate, max-age=0"
+    <FilesMatch "\.(?:css|js)$">
+        Header always set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+</IfModule>
+
+RewriteRule (^|/)\. - [F,L]
+RewriteRule ^(s-admin|r-owner|cashier)/(assets|uploads)/(.*)$ $2/$3 [L,NC]
+RewriteRule ^(s-admin|r-owner|cashier)/dashboard/?$ dashboard.php [QSA,L,NC]
+RewriteRule ^dashboard/?$ dashboard.php [QSA,L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [QSA,L]

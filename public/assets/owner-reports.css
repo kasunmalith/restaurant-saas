@@ -1,0 +1,20 @@
+.owner-report-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:20px}
+.owner-report-heading h2{margin:0 0 7px}
+.owner-report-heading p:last-child{margin:0;color:var(--admin-muted)}
+.owner-report-heading>span{flex:none;padding:8px 12px;border:1px solid var(--admin-line);border-radius:999px;background:var(--admin-soft);color:var(--admin-muted);font-size:.76rem;font-weight:800}
+.owner-report-search{display:grid;grid-template-columns:minmax(260px,1fr) auto auto;align-items:end;gap:12px;margin-bottom:20px}
+.owner-report-search label{display:grid;gap:7px;margin:0;color:var(--admin-muted);font-size:.78rem;font-weight:750}
+.owner-report-search input{width:100%;min-height:48px;margin:0}
+.owner-report-search button,.owner-report-search .button{min-height:48px;margin:0}
+.owner-report-summary{margin-bottom:16px}
+.owner-report-note{margin:0 0 20px;color:var(--admin-muted);font-size:.8rem;line-height:1.55}
+.owner-report-table-wrap{overflow-x:auto;border:1px solid var(--admin-line);border-radius:15px}
+.owner-report-table{min-width:780px;margin:0}
+.owner-report-table th{white-space:nowrap;color:var(--admin-muted);font-size:.7rem;text-transform:uppercase;letter-spacing:.06em}
+.owner-report-table td{vertical-align:middle;color:var(--admin-text);font-variant-numeric:tabular-nums}
+.owner-report-table td:first-child{display:grid;gap:3px}
+.owner-report-table td:first-child small{color:var(--admin-muted)}
+.owner-report-empty{padding:34px;border:1px dashed var(--admin-line);border-radius:15px;text-align:center;background:var(--admin-soft)}
+.owner-report-empty strong{color:var(--admin-text)}
+.owner-report-empty p{margin:6px 0 0;color:var(--admin-muted)}
+@media(max-width:680px){.owner-report-heading{display:grid}.owner-report-heading>span{justify-self:start}.owner-report-search{grid-template-columns:1fr}.owner-report-search button,.owner-report-search .button{width:100%;text-align:center}}

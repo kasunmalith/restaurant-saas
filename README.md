@@ -1,36 +1,77 @@
-# Energetic Edge Restaurant Ordering
+<div align="center">
+  <h1>Energetic Edge Restaurant Ordering</h1>
+  <p><strong>QR menus, ordering, point of sale and stock workflows for multiple restaurants.</strong></p>
+  <p><img alt="PHP 8.2+" src="https://img.shields.io/badge/PHP%208.2%2B-243447?style=flat-square"> <img alt="MySQL" src="https://img.shields.io/badge/MySQL-243447?style=flat-square"> <img alt="Composer" src="https://img.shields.io/badge/Composer-243447?style=flat-square"> <img alt="Multi tenant" src="https://img.shields.io/badge/Multi%20tenant-243447?style=flat-square"> <img alt="QR ordering" src="https://img.shields.io/badge/QR%20ordering-243447?style=flat-square"></p>
+</div>
 
-> A multi-tenant QR ordering, point of sale and inventory platform for restaurants.
+---
 
-## What it does
+## Overview
 
-- Restaurant owner, admin and cashier workspaces
-- QR menus, table sessions and customer ordering
-- Point of sale, order history and receipt settings
-- Menu, portion, category and staff controls
-- Inventory portal with recipes, stock counts and wastage
+A lightweight multi-tenant restaurant application with separate SaaS owner, restaurant administrator, cashier and customer experiences. Its source includes table QR controls, a mobile menu and order flow, point-of-sale operations, reporting and an inventory portal.
 
-## Technology
+> [!NOTE]
+> This is a public source snapshot prepared from a local project. It includes implementation code and safe schema/sample data, without live records or credentials.
 
-PHP 8.2+, MySQL/MariaDB, Apache, Composer
+## What the software can do
 
-## Local setup
+| Area | Implemented scope |
+| --- | --- |
+| **SaaS ownership** | Restaurant creation, activation, subscription dates and manual payment records. |
+| **Restaurant management** | Branding, menu categories, food items, staff, tables and ordering settings. |
+| **Customer menu** | QR-authorized menu browsing, basket, special requests and server-priced order submission. |
+| **Cashier and POS** | Pending orders, status history, bill editing, payment recording and receipt settings. |
+| **QR operations** | Table token management, QR PNG and printable single/multi-table PDF cards. |
+| **Inventory portal** | Stock, recipes, counts, KOT-linked use, wastage and related worker jobs. |
+| **Reporting** | Date-range order summaries, popular items and tenant-scoped CSV exports. |
 
-1. Copy `.env.example` to `.env` and enter new local secrets.
-2. Run `composer install`.
-3. Import `database/schema.sql`, then apply migrations in version order as required.
-4. Open the project through a local Apache virtual host or WAMP folder.
+### Typical workflow
 
-## Database and sample data
+1. The owner provisions a restaurant and its administrator.
+2. Staff configure menu items and tables, then distribute table-specific QR cards.
+3. A guest orders from the menu; cashier/POS processes the order and the inventory portal can account for stock.
 
-Schema and numbered migrations in `database/`; inventory portal migrations in `public/inventory-portal/database/migrations/`.
+## Run locally
 
-Only schema and fictional starter data are intended for this public repository. Live customer, patient, order and enquiry records are never part of this snapshot.
+1. Use PHP 8.2+, MySQL/MariaDB, Apache and Composer.
+2. Copy `.env.example` to `.env`, generate a new `APP_KEY` and configure a new local database.
+3. Import `database/schema.sql`; review and apply the numbered migrations needed by this snapshot.
+4. Run `composer install` and serve the `public/` entry point through Apache.
+5. Provision initial owner/staff accounts securely. This public snapshot intentionally does not ship demo logins.
 
-## Publication note
+## Database and sample content
 
-This repository is a source snapshot. It does not include deployment credentials, live database records, customer uploads or server backups. Create fresh secrets and review the application before production use.
+`database/schema.sql` contains table structure, with all demo inserts removed for publication. Numbered SQL files cover later additions. The inventory portal has its own migrations under `public/inventory-portal/database/migrations/`. No live orders, customers or restaurant uploads are published.
 
-## Development credit
+## Repository guide
 
-Software Development by [Energetic Edge (Pvt) Ltd](https://www.energeticedge.lk/)
+| Path | Purpose |
+| --- | --- |
+| `app/` | Tenant-aware controls, endpoints, session and authorization logic |
+| `public/` | Web entry points, menu/POS assets and inventory portal |
+| `database/` | Base schema, migrations and maintenance helpers |
+| `tests/` | Local integration and smoke tests |
+
+## Security and privacy
+
+- Tenant and role checks protect staff operations.
+- Tokens are hashed/encrypted where the QR workflow requires it; submitted prices are checked server-side.
+- Private `.env`, runtime uploads and logs stay outside this repository.
+
+## Current boundaries
+
+- Initial accounts must be provisioned before sign-in because credential seed rows were removed.
+- Online card payments, SMS renewal reminders and external accounting integration are not implemented in this snapshot.
+- The inventory portal's background jobs require a hosting-specific schedule.
+
+## Verification
+
+Run PHP lint, the local integration tests and the complete guest-to-cashier order flow against a disposable database.
+
+---
+
+<div align="center">
+
+Software Development by <a href="https://www.energeticedge.lk/" target="_blank" rel="noopener noreferrer">Energetic Edge (Pvt) Ltd</a>
+
+</div>
